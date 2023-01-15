@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  cursor: default;
+  user-select: none;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Lato Regular';
+  src: url(fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Lato Light';
+  src: url(fonts/Lato-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat.ttf);
+}
