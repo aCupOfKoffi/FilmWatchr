@@ -12,13 +12,19 @@ console.log('Request')
         return res;
     }
 
+    const getMostPopular = async () => {
+        const res = await request(`${_apiBase}discover/movie?${_apiKey}&sort_by=popularity.desc`)
+        return res;
+    }
+
     return {
         loading, 
         clearError,
         error, 
         getSingleFilm,
         process, 
-        setProcess
+        setProcess,
+        getMostPopular
     }
 }
 

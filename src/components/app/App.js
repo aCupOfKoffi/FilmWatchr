@@ -4,7 +4,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import AuthorsPage from '../authorsPage/AuthorsPage';
+import AuthorsPage from '../actorsPage/ActorsPage';
 import FilmsPage from '../filmPage/FilmsPage';
 import GenrePage from '../genrePage/GenrePage';
 import TrendingPage from '../trendingPage/TrendingPage';
@@ -19,7 +19,7 @@ export default function BasicExample() {
           <Routes>
               <Route path='/' element={<FilmsPage />} />
               <Route path='/genres' element={<GenrePage />} />
-              <Route path='/authors' element={<AuthorsPage />} />
+              <Route path='/actors' element={<AuthorsPage />} />
               <Route path='/trending' element={<TrendingPage />} />
           </Routes>
       </div>

@@ -17,9 +17,9 @@ const NavMenu = () => {
         },
         {
             id: 2,
-            name: 'Authors',
+            name: 'Actors',
             active: false,
-            link: 'authors'
+            link: 'actors'
         },
         {
             id: 4,

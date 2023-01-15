@@ -1,58 +1,36 @@
+* {
+    transition: 0.3s;
+}
+
 h2 {
-    font-family: Montserrat;
     font-size: 15px;
 }
+
 .films_list {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    height: inherit;
+    font-family: Montserrat;
+
 }
 
 .films_list_item {
-    position: relative;
-    width: 150px;
+    height: 95%;
     margin: 5px;
 }
 
-.item_poster {
-    width: inherit;
-    
-}
-
-.films_list_item_info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: inherit;
-    height: 30px;
+.films_list_item img {
+    height: 80%;
 }
 
 .vote-rating {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: inherit;
+    height: 20%;
 }
 
-.rating_icon {
+.vote-rating img {
+    margin-right: 5px;
     width: 15px;
-}
-
-.rating_coefficient {
-    display: flex;
-    justify-content: center;
-    font-size: 10px;
-    margin-left: 5px;
-    font-family: Montserrat;
-}
-
-.restrictions_list {
-    position: absolute;
-    width: inherit;
-    top: 0;
-    margin: 5px;
-}
-
-.restrictions_list img {
-    width: 15px
 }

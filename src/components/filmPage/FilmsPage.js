@@ -1,9 +1,12 @@
 import Carousel from "../carousel/Carousel";
 import FilmsList from "../filmsList/FilmsList";
+import './FilmsPage.css';
 
 const FilmsPage = () => {
     return (
-        <Carousel />        
+        <section className="films_page">
+            <Carousel />        
+        </section>
     )
 }
 
