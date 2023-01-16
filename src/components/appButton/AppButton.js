@@ -3,7 +3,7 @@
 const AppButton = ({onClick, buttonClass, text = null, iconUrl}) => {
     return (
         <button onClick={onClick} className={buttonClass}>
-            <img src={iconUrl} alt={text} />
+            {iconUrl ? <img src={iconUrl} alt={text} /> : null}
             {text}
         </button>
     )

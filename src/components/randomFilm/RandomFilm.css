@@ -1,0 +1,30 @@
+
+h3 {
+    font-size: 30px;
+}
+
+.elem_poster {
+    height: 90%;
+}
+
+.elem_info {
+    height: 80%;
+    margin-left: 5vw;
+}
+
+.elem_descr {
+    margin: 20px 0;   
+}
+
+.elem_button {
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: #0d6efd;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.elem_button:hover {
+    /* border: 2px solid #fff; */
+}

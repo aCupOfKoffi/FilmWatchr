@@ -17,6 +17,21 @@ console.log('Request')
         return res;
     }
 
+    // const getFilmsList = async () => {
+    //     const res = await request(`${}`);
+    //     return res;
+    // }
+
+    const getFilmsByYear = async (year) => {
+        const res = await request(`${_apiBase}/discover/movie?${_apiKey}&primary_release_year=${year}&sort_by=vote_average.desc`);
+        return res;
+    }
+
+    const getFilmsForKids = async () => {
+        const res = await request(`${_apiBase}/discover/movie?${_apiKey}&certification_country=US&certification.lte=G&sort_by=popularity.desc`);
+        return res;
+    }
+
     return {
         loading, 
         clearError,
@@ -24,7 +39,9 @@ console.log('Request')
         getSingleFilm,
         process, 
         setProcess,
-        getMostPopular
+        getMostPopular,
+        getFilmsByYear,
+        getFilmsForKids,
     }
 }
 
