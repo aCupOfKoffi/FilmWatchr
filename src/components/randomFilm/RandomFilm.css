@@ -23,6 +23,7 @@ h3 {
     background-color: #0d6efd;
     border-radius: 6px;
     color: #fff;
+    margin: 5px;
 }
 
 .elem_button:hover {

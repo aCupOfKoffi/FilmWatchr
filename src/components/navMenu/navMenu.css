@@ -2,7 +2,6 @@ a {
     text-decoration: none;
     color: black;
     cursor: pointer;
-    padding: 20px;
     user-select: none;
 }
 a:hover {
@@ -17,26 +16,64 @@ a:active {
     display: flex;
     align-items: center;
     margin-left: 10vw;
-    background-color: rgb(241, 241, 241);
     height: 40px;
   font-family: 'Comfortaa', cursive;
-    
-    overflow: hidden;
+    z-index: 6;
+    /* overflow: hidden; */
 }
 
 .navigation_list {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .navigation_list_item {
-    /* padding: 20px; */
-    font-size: 18px;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 16px;
     text-decoration: none;
-    color: black;
+    height: 100%;
+    color: white;
+    background-color: var(--dark-grey);;
+    border: 3px solid var(--dark-grey);
 }
+
 
 .navigation_list_item.active {
     background-color: #0d6efd;
-    color:rgb(241, 241, 241)
+
+}
+
+.navigation_list_item a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+}
+
+/* DROP MENU */
+
+.drop_list {
+    position: absolute;
+    width: inherit;
+    transition: 0.3s;
+
+    height: 0;
+    background-color: var(--light-grey);
+    overflow: hidden;
+}
+
+.navigation_list_item:nth-child(n):hover .drop_list {
+    transition: 0.3s;
+    height: auto;
+}
+
+.drop_list_item {
+    font-size: 14px;
+    padding: 4px 2px;
+}
+
+.drop_list_item:hover {
+    background-color: white;
 }

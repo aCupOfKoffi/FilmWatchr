@@ -4,17 +4,32 @@ import star from '../../assets/icons/star.svg';
 import knife from '../../assets/icons/knife.svg';
 
 import './FilmsList.css';
+import Spinner from "../spinner/Spinner";
 
 
-const FilmsList = ({length = 5, method, ...props}) => {
+const FilmsList = ({length = 5, method, process, ...props}) => {
     // const [filmsList, setFilmsList] = useState([]);
     const [MPFilms, setMPFilms] = useState([])
-
     
     useEffect(() => {
         method()
             .then(res => setMPFilms(res.results))
     }, []);
+    
+    useEffect(() => {
+        console.log(process);
+    }, [process])
+
+    const setContent = (process, Component) => {
+        switch(process) {
+            case 'confirmed': 
+                return <Component />
+            case 'loading': 
+                return <Spinner />
+            default: 
+                return 'no way';
+        }
+    }
     
     const renderItems = (arr) => {
         return arr.map(({title, adult, poster_path, id, vote_average}, i) => {
@@ -43,9 +58,10 @@ const FilmsList = ({length = 5, method, ...props}) => {
 
 
 
+
     return (
         <ul {...props} className="films_list">
-            {renderItems(MPFilms)}
+            {setContent(process, () => renderItems(MPFilms))}
         </ul>
     )
 }

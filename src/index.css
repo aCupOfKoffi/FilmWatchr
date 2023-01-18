@@ -5,6 +5,8 @@
   list-style: none;
   cursor: default;
   /* user-select: none; */
+  --light-grey: #f1f1f1;
+  --dark-grey: #313131;
 }
 
 button, a {
