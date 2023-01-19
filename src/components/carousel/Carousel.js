@@ -18,7 +18,7 @@ const Carousel = ({method, process}) => {
     return (
         <section className="carousel">
             <AppButton onClick={() => changePos(position, 1)} buttonClass='carousel_button button_left' iconUrl='https://www.svgrepo.com/show/489363/arrow-left-2.svg' />
-                <FilmsList process={process} method={method} style={{transform: `translateX(${position}px)`}} length={3} />
+                <FilmsList header='Currently in theaters:' process={process} method={method} style={{transform: `translateX(${position}px)`}} length={3} />
             <AppButton onClick={() => changePos(position, -1)} buttonClass='carousel_button button_right' iconUrl='https://www.svgrepo.com/show/489372/arrow-right-2.svg' />
         </section>
     )

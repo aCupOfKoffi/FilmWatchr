@@ -22,7 +22,7 @@ console.log('Request')
     //     return res;
     // }
 
-    const getFilmsByYear = async (year) => {
+    const getFilmsByYear = async (year = 2022) => {
         const res = await request(`${_apiBase}/discover/movie?${_apiKey}&primary_release_year=${year}&sort_by=vote_average.desc`);
         return res;
     }

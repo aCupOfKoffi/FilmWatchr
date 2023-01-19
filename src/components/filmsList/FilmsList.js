@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useService from "../services/Service"
 import star from '../../assets/icons/star.svg';
-import knife from '../../assets/icons/knife.svg';
 
 import './FilmsList.css';
 import Spinner from "../spinner/Spinner";
+import { NavLink } from "react-router-dom";
+import Rating from "../rating/Rating";
 
 
-const FilmsList = ({length = 5, method, process, ...props}) => {
+const FilmsList = ({header, method, process, ...props}) => {
     // const [filmsList, setFilmsList] = useState([]);
     const [MPFilms, setMPFilms] = useState([])
     
@@ -35,15 +36,14 @@ const FilmsList = ({length = 5, method, process, ...props}) => {
         return arr.map(({title, adult, poster_path, id, vote_average}, i) => {
             return (
                 <li key={id} className='films_list_item'>
-                <img className='item_poster' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt='sdf' />
-                <div className="films_list_item_info">
-                    <h2>{title.length > 11 ? `${title.slice(0, 11)}...` : title}</h2>
-                    <span className="vote-rating">
-                        <img className="rating_icon" src={star} alt="star" />
-                        <p className="rating_coefficient">{vote_average.toFixed(1)}</p>
-                    </span>
-                </div>
-            </li>
+                        <NavLink to={`/films/${id}`}>
+                    <img className='item_poster' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt='sdf' />
+                    <div className="films_list_item_info">
+                        <h4>{title.length > 11 ? `${title.slice(0, 11)}...` : title}</h4>
+                        <Rating rate={vote_average} />
+                    </div>
+                </NavLink>
+                    </li>
             )
         })
     }
@@ -60,9 +60,12 @@ const FilmsList = ({length = 5, method, process, ...props}) => {
 
 
     return (
-        <ul {...props} className="films_list">
-            {setContent(process, () => renderItems(MPFilms))}
-        </ul>
+        <>
+            <h2 className="list_header">{header}</h2>
+            <ul {...props} className="films_list">
+                {setContent(process, () => renderItems(MPFilms))}
+            </ul>
+        </>
     )
 }
 

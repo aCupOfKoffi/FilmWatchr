@@ -1,0 +1,11 @@
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20%;
+}
+
+.rating_icon {
+    margin-right: 5px;
+    width: 15px;
+}

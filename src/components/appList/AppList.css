@@ -1,0 +1,40 @@
+.list {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.list_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 32px;
+}
+
+.list_header * {
+    font-size: 30px;
+    
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+
+
+.list_header input {
+    width: 90px;
+    margin-left: 15px;
+    padding: 4px;
+    background-color: var(--light-grey);
+    border: none;
+    border-radius: 6px;
+    caret-color: transparent;
+}
+
+.list_header input:focus-visible {
+    outline: none;
+}
+
+.list_header input:hover {
+    width: 100px;
+}

@@ -1,8 +1,8 @@
-
+import './Spinner.css';
 
 const Spinner = () => {
     return (
-        <div>Loading...</div>
+        <div className="spinner">Loading...</div>
     )
 }
 

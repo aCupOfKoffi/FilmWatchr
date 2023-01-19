@@ -2,14 +2,21 @@
     transition: 0.3s;
 }
 
-h2 {
+.list_header {
+    font-size: 30px;
+    font-family: Montserrat;
+    margin: 10px;
+    height: 10%;
+}
+
+h4 {
     font-size: 15px;
 }
 
 .films_list {
     display: flex;
     align-items: center;
-    height: inherit;
+    height: 82%;
     font-family: Montserrat;
 
 }
@@ -17,6 +24,11 @@ h2 {
 .films_list_item {
     height: 95%;
     margin: 5px;
+}
+
+.films_list_item * {
+    cursor: pointer;
+
 }
 
 .films_list_item img {
