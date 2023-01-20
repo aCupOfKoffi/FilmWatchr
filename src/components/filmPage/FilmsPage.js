@@ -15,8 +15,7 @@ const FilmsPage = () => {
         <section className="films_page">
             <Carousel process={process} method={getFilmsForKids} />
             {/* <FilmsList setMethod={setYear} header='Best films of ' method={() => getFilmsByYear(year)} /> */}
-            <AppList LClass='films_by_year_list' LIClass='films_by_year_list-item' method={getFilmsByYear} />
-            <Rating rate={7.2321} />
+            <AppList LClass='films_by_year_list' LIClass='films_by_year_list-item' process={process} method={(year) => getFilmsByYear(year)} arg={year} setArg={setYear} />
             <RandomFilm elemClass='random_film' />
         </section>
     )

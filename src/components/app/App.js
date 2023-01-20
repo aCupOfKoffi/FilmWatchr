@@ -10,6 +10,7 @@ import GenrePage from '../genrePage/GenrePage';
 import TrendingPage from '../trendingPage/TrendingPage';
 import AppHeader from "../appHeader/AppHeader";
 import './App.css';
+import Footer from "../Footer/Footer";
 
 export default function BasicExample() {
   return (
@@ -23,6 +24,7 @@ export default function BasicExample() {
               <Route path='/trending' element={<TrendingPage />} />
           </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

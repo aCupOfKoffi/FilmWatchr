@@ -1,12 +1,19 @@
-.list {
+.list_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;;
     width: 100%;
     margin-top: 30px;
+    min-height: 100vh;
 }
+
+/* HEADER */
 
 .list_header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
     height: 32px;
 }
 
@@ -18,9 +25,6 @@
 input:focus-visible {
     outline: none;
 }
-
-
-
 .list_header input {
     width: 90px;
     margin-left: 15px;
@@ -35,6 +39,26 @@ input:focus-visible {
     outline: none;
 }
 
-.list_header input:hover {
-    width: 100px;
+/* CONTENT */
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    font-family: Montserrat;
+    margin-top: 20px;
+}
+
+.list_item {
+    width: 180px;
+    height: 380px;
+}
+
+.list_item * {
+    cursor: pointer;
+}
+
+.list_image {
+    width: 95%;
+    height: 68%;
 }

@@ -18,7 +18,6 @@ const FilmsList = ({header, method, process, ...props}) => {
     }, []);
     
     useEffect(() => {
-        console.log(process);
     }, [process])
 
     const setContent = (process, Component) => {
@@ -26,7 +25,9 @@ const FilmsList = ({header, method, process, ...props}) => {
             case 'confirmed': 
                 return <Component />
             case 'loading': 
-                return <Spinner />
+                if (MPFilms){
+                    return <Component />;
+                } else return <Spinner />
             default: 
                 return 'no way';
         }

@@ -3,38 +3,54 @@ import { NavLink } from "react-router-dom";
 
 import star from '../../assets/icons/star.svg';
 import useService from "../services/Service";
+import Spinner from "../spinner/Spinner";
+import Filler from "../filler/Filler";
 import './AppList.css';
 
 
-const AppList = ({LClass, LIClass, method}) => {
-    const [year, setYear] = useState(2020);
+const AppList = ({LClass, LIClass, process, method, arg, setArg}) => {
+    // const [year, setYear] = useState(2020);
     const [list, setList] = useState([]);
-
-
-    useEffect(() => {
-        // onRequest();
-    }, []);
+    let timer = undefined;
 
     useEffect(() => {
-        console.log(year);
-    }, [year])
+        onRequest();
+    }, [arg]);
+
+    const debounceRequest = (value) => {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => setArg(value), 1000)
+    }
 
     const onRequest = () => {
-        method(year)
+        method(arg)
             .then(res => setList(res.results))
+            .then(() => timer = undefined);
+    }
+
+    const setContent = (process, Component) => {
+        switch(process) {
+            case 'confirmed':
+                return <Component />
+            case 'loading':
+                return <Spinner />
+            default:
+                return 'Cant get content'
+        }
     }
 
     const renderItems = (arr) =>{
-        // console.log(arr)
         return arr.map((item) => {
             return (
                 <li key={crypto.randomUUID()} className={`list_item ${LIClass}`}>
                     <NavLink to={`/films/${item.id}`}>
-                        <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
+                        {item.poster_path ? <img className="list_image" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} /> : <Filler width='95%' height='68%' content='No poster here' /> }
                         <div className="FBY_list_item_info">
                             <h4>{item.title}</h4>
                             <span className="vote-rating">
-                            <img className="rating_icon" src={star} alt="star" />
+                            <img className="rating_icon" src={star} alt="rating" />
                             <p className="rating_coefficient">{item.vote_average.toFixed(1)}</p>
                         </span>
                         </div>
@@ -44,15 +60,14 @@ const AppList = ({LClass, LIClass, method}) => {
     })
     }
 
-    const elements = renderItems(list);
     return (
-        <section className="list">
+        <section className="list_container">
             <div className='list_header'>
                 <h2>Best films of </h2>
-                <input onChange={(e) => console.log(e.target.value)} defaultValue={2020} type='number' className="list_input" />
+                <input onChange={(e) => debounceRequest(e.target.value)} defaultValue={arg} type='number' className="list_input" />
             </div>
-            <ul className={`item_list ${LClass}`}>
-                {elements}
+            <ul className={`list ${LClass}`}>
+                {setContent(process, () => renderItems(list))}
             </ul>
         </section>
 

@@ -38,7 +38,7 @@ const RandomFilm = ({elemClass}) => {
             <>
                 {film.poster_path ? <img onLoad={() => setImgLoaded(true)} className="elem_poster" src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt={film.title} /> : null}
                 <div style={{visibility: !imgLoaded && film.poster_path ? 'hidden' : 'visible'}} className='elem_info'>
-                    <h3>{film.title.length > 25 ? `${film.title.slice(0, 25)}...` : film.title}</h3>
+                    <h3>{film.title.length > 35 ? `${film.title.slice(0, 35)}...` : film.title}</h3>
                     <p className='elem_descr'>{film.overview ? film.overview.length > 350 ? `${film.overview.slice(0, 350)}...` : film.overview : 'Oops, seems like there is no description for this film...'}</p>
                     <Rating rate={film.vote_average} />
                     <AppButton text='More...' buttonClass='elem_button' />
