@@ -4,13 +4,15 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import AuthorsPage from '../actorsPage/ActorsPage';
-import FilmsPage from '../filmPage/FilmsPage';
-import GenrePage from '../genrePage/GenrePage';
-import TrendingPage from '../trendingPage/TrendingPage';
+import {FilmsPage,
+        GenrePage,
+        SingleFilmPage,
+        ActorsPage,
+        TrendingPage} from '../../pages';
 import AppHeader from "../appHeader/AppHeader";
 import './App.css';
 import Footer from "../Footer/Footer";
+
 
 export default function BasicExample() {
   return (
@@ -19,8 +21,9 @@ export default function BasicExample() {
       <div className="main_content">
           <Routes>
               <Route path='/' element={<FilmsPage />} />
+              <Route path="/films/:filmId" element={<SingleFilmPage />} />
               <Route path='/genres' element={<GenrePage />} />
-              <Route path='/actors' element={<AuthorsPage />} />
+              <Route path='/actors' element={<ActorsPage />} />
               <Route path='/trending' element={<TrendingPage />} />
           </Routes>
       </div>

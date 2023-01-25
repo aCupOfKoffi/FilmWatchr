@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import star from '../../assets/icons/star.svg';
-import useService from "../services/Service";
 import Spinner from "../spinner/Spinner";
 import Filler from "../filler/Filler";
 import './AppList.css';
+import Rating from "../rating/Rating";
 
 
 const AppList = ({LClass, LIClass, process, method, arg, setArg}) => {
@@ -49,10 +48,7 @@ const AppList = ({LClass, LIClass, process, method, arg, setArg}) => {
                         {item.poster_path ? <img className="list_image" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} /> : <Filler width='95%' height='68%' content='No poster here' /> }
                         <div className="FBY_list_item_info">
                             <h4>{item.title}</h4>
-                            <span className="vote-rating">
-                            <img className="rating_icon" src={star} alt="rating" />
-                            <p className="rating_coefficient">{item.vote_average.toFixed(1)}</p>
-                        </span>
+                            <Rating rate={item.vote_average} />
                         </div>
                     </NavLink>
                 </li>

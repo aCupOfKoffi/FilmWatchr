@@ -6,7 +6,6 @@ const NavMenu = () => {
 
 
     const formDropMenu = (arr, itemClass) => {
-        console.log(arr)
         let elements = arr.map(item => {
             return (
                 <li key={crypto.randomUUID()} className={itemClass}>
@@ -16,7 +15,6 @@ const NavMenu = () => {
                 </li>
              )
         })
-        console.log(typeof arr, arr.map(item => item))
 
         return (
             <ul className='drop_list'>

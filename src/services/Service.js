@@ -1,4 +1,4 @@
-import { useHttp } from "../hooks/htttp.hook"
+import { useHttp } from "../hooks/http.hook"
 
 
 const useService = () => {
@@ -16,11 +16,6 @@ const useService = () => {
         const res = await request(`${_apiBase}discover/movie?${_apiKey}&sort_by=popularity.desc`)
         return res;
     }
-
-    // const getFilmsList = async () => {
-    //     const res = await request(`${}`);
-    //     return res;
-    // }
 
     const getFilmsByYear = async (year = 2022) => {
         const res = await request(`${_apiBase}/discover/movie?${_apiKey}&primary_release_year=${year}&sort_by=vote_average.desc`);

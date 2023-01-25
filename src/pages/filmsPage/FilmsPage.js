@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import AppList from "../appList/AppList";
-import Carousel from "../carousel/Carousel";
-import FilmsList from "../filmsList/FilmsList";
-import RandomFilm from "../randomFilm/RandomFilm";
-import Rating from "../rating/Rating";
-import useService from "../services/Service";
+import AppList from "../../components/appList/AppList";
+import Carousel from "../../components/carousel/Carousel";
+import RandomFilm from "../../components/randomFilm/RandomFilm";
+import useService from '../../services/Service';
 import './FilmsPage.css';
 
 const FilmsPage = () => {

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import useService from "../services/Service"
-import star from '../../assets/icons/star.svg';
 
 import './FilmsList.css';
 import Spinner from "../spinner/Spinner";

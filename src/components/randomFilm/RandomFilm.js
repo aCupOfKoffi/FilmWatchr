@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import AppButton from "../appButton/AppButton";
 import Rating from "../rating/Rating";
-import useService from "../services/Service";
+import useService from "../../services/Service";
 import Spinner from "../spinner/Spinner";
 import './RandomFilm.css';
 
@@ -41,7 +42,9 @@ const RandomFilm = ({elemClass}) => {
                     <h3>{film.title.length > 35 ? `${film.title.slice(0, 35)}...` : film.title}</h3>
                     <p className='elem_descr'>{film.overview ? film.overview.length > 350 ? `${film.overview.slice(0, 350)}...` : film.overview : 'Oops, seems like there is no description for this film...'}</p>
                     <Rating rate={film.vote_average} />
-                    <AppButton text='More...' buttonClass='elem_button' />
+                    <NavLink to={`/films/${film.id}`}>
+                        <AppButton text='More...' buttonClass='elem_button' />
+                    </NavLink>
                     <AppButton text='Other film' onClick={() => onRequest()} buttonClass='elem_button' />
                 </div>
             </>
